@@ -20,16 +20,16 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View main_screen = inflater.inflate(R.layout.fragment_main, container, false);
 
-        // text fields to dield in main screen
-        final TextView name_of_user = (TextView) main_screen.findViewById(R.id.textView_name);
-        final TextView number_of_tasks = (TextView) main_screen.findViewById(R.id.textView_tasks);
-        final TextView up_next = (TextView) main_screen.findViewById(R.id.textView_up_next);
-        final TextView number_of_grades = (TextView) main_screen.findViewById(R.id.textView_grade);
-
-        name_of_user.setText("Hey Tom,");
-        number_of_tasks.setText("5");
-        up_next.setText("Algorithms Ex4 \n in 3 days, 2 hours, 20 minutes");
-        number_of_grades.setText("4");
+//        // text fields to dield in main screen
+//        final TextView name_of_user = (TextView) main_screen.findViewById(R.id.textView_name);
+//        final TextView number_of_tasks = (TextView) main_screen.findViewById(R.id.textView_tasks);
+//        final TextView up_next = (TextView) main_screen.findViewById(R.id.textView_up_next);
+//        final TextView number_of_grades = (TextView) main_screen.findViewById(R.id.textView_grade);
+//
+//        name_of_user.setText("Hey Tom,");
+//        number_of_tasks.setText("5");
+//        up_next.setText("Algorithms Ex4 \n in 3 days, 2 hours, 20 minutes");
+//        number_of_grades.setText("4");
 
 
         return main_screen;

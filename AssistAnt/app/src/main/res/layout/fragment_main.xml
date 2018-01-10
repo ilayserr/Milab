@@ -34,8 +34,8 @@
                 android:layout_height="63dp"
                 android:layout_alignEnd="@+id/textView_name"
                 android:layout_below="@+id/textView_name"
-                android:layout_marginEnd="30dp"
-                android:layout_marginTop="61dp"
+                android:layout_marginEnd="19dp"
+                android:layout_marginTop="60dp"
                 android:fontFamily="casual"
                 android:lineSpacingExtra="18sp"
                 android:textAlignment="center"
@@ -48,9 +48,10 @@
                 android:id="@+id/textView_up_next"
                 android:layout_width="250dp"
                 android:layout_height="63dp"
-                android:layout_alignStart="@+id/textView_tasks"
+                android:layout_alignStart="@+id/textView_grade"
                 android:layout_below="@+id/textView_tasks"
-                android:layout_marginTop="71dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="68dp"
                 android:fontFamily="casual"
                 android:lineSpacingExtra="5sp"
                 android:textAlignment="center"
@@ -65,8 +66,8 @@
                 android:layout_height="63dp"
                 android:layout_alignEnd="@+id/textView_tasks"
                 android:layout_below="@+id/textView_up_next"
-                android:layout_marginEnd="12dp"
-                android:layout_marginTop="31dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="36dp"
                 android:fontFamily="casual"
                 android:lineSpacingExtra="18sp"
                 android:textAlignment="center"
@@ -75,30 +76,39 @@
                 android:textStyle="bold"
                 android:visibility="visible" />
 
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="98dp"
+                android:layout_height="128dp"
+                android:layout_alignEnd="@+id/textView_name"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="13dp"
+                android:src="@drawable/button_tasks_page" />
+
 
             <!--<TextView-->
-                <!--android:id="@+id/busy"-->
-                <!--android:layout_width="44dp"-->
-                <!--android:layout_height="25dp"-->
-                <!--android:layout_alignBaseline="@+id/free"-->
-                <!--android:layout_alignBottom="@+id/free"-->
-                <!--android:layout_alignEnd="@+id/seekBar_luminosite"-->
-                <!--android:layout_marginEnd="26dp"-->
-                <!--android:text="Busy"-->
-                <!--android:textSize="18sp"-->
-                <!--tools:layout_editor_absoluteX="38dp"-->
-                <!--tools:layout_editor_absoluteY="557dp" />-->
+            <!--android:id="@+id/busy"-->
+            <!--android:layout_width="44dp"-->
+            <!--android:layout_height="25dp"-->
+            <!--android:layout_alignBaseline="@+id/free"-->
+            <!--android:layout_alignBottom="@+id/free"-->
+            <!--android:layout_alignEnd="@+id/seekBar_luminosite"-->
+            <!--android:layout_marginEnd="26dp"-->
+            <!--android:text="Busy"-->
+            <!--android:textSize="18sp"-->
+            <!--tools:layout_editor_absoluteX="38dp"-->
+            <!--tools:layout_editor_absoluteY="557dp" />-->
 
             <!--<TextView-->
-                <!--android:id="@+id/free"-->
-                <!--android:layout_width="44dp"-->
-                <!--android:layout_height="25dp"-->
-                <!--android:layout_alignStart="@+id/seekBar_luminosite"-->
-                <!--android:layout_below="@+id/textView_grade"-->
-                <!--android:layout_marginStart="10dp"-->
-                <!--android:layout_marginTop="56dp"-->
-                <!--android:text="Free"-->
-                <!--android:textSize="18sp" />-->
+            <!--android:id="@+id/free"-->
+            <!--android:layout_width="44dp"-->
+            <!--android:layout_height="25dp"-->
+            <!--android:layout_alignStart="@+id/seekBar_luminosite"-->
+            <!--android:layout_below="@+id/textView_grade"-->
+            <!--android:layout_marginStart="10dp"-->
+            <!--android:layout_marginTop="56dp"-->
+            <!--android:text="Free"-->
+            <!--android:textSize="18sp" />-->
 
             <!--<android.support.constraint.Guideline-->
             <!--android:id="@+id/guideline2"-->
@@ -115,18 +125,18 @@
             <!--app:layout_constraintGuide_begin="16dp" />-->
 
             <!--<SeekBar-->
-                <!--android:id="@+id/seekBar_luminosite"-->
-                <!--android:layout_width="351dp"-->
-                <!--android:layout_height="34dp"-->
-                <!--android:layout_alignStart="@+id/textView_name"-->
-                <!--android:layout_below="@+id/busy"-->
-                <!--android:layout_marginStart="20dp"-->
-                <!--android:max="100"-->
-                <!--android:progress="40"-->
-                <!--android:progressDrawable="@drawable/seekbar_style"-->
-                <!--android:thumb="@drawable/custom_thumb"-->
-                <!--tools:layout_editor_absoluteX="65dp"-->
-                <!--tools:layout_editor_absoluteY="534dp" />-->
+            <!--android:id="@+id/seekBar_luminosite"-->
+            <!--android:layout_width="351dp"-->
+            <!--android:layout_height="34dp"-->
+            <!--android:layout_alignStart="@+id/textView_name"-->
+            <!--android:layout_below="@+id/busy"-->
+            <!--android:layout_marginStart="20dp"-->
+            <!--android:max="100"-->
+            <!--android:progress="40"-->
+            <!--android:progressDrawable="@drawable/seekbar_style"-->
+            <!--android:thumb="@drawable/custom_thumb"-->
+            <!--tools:layout_editor_absoluteX="65dp"-->
+            <!--tools:layout_editor_absoluteY="534dp" />-->
 
         </RelativeLayout>
     </FrameLayout>
