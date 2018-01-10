@@ -4,84 +4,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="e.shaniadir.assistant.MainActivityFragment"
+    tools:context="com.example.assistant.MainActivityFragment"
+    android:background="@drawable/home_screen"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="35dp"
-        android:layout_height="34dp"
-        android:text="Free"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
-        tools:layout_editor_absoluteY="107dp" />
-
-    <TextView
-        android:id="@+id/textView"
+    <FrameLayout
         android:layout_width="368dp"
-        android:layout_height="32dp"
-        android:text="Hey Tom,"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/seekBar_luminosite"
-        app:layout_constraintTop_toBottomOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="8dp" />
+        android:layout_height="439dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
-    <SeekBar
-        android:id="@+id/seekBar_luminosite"
-        android:layout_width="351dp"
-        android:layout_height="34dp"
-        android:max="100"
-        android:progress="40"
-        android:progressDrawable="@drawable/seekbar_style"
-        android:thumb="@drawable/custom_thumb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
-        tools:layout_editor_absoluteY="73dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="44dp"
-        android:layout_height="25dp"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_luminosite"
-        android:text="Busy"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="311dp"
-        tools:layout_editor_absoluteY="107dp" />
+            <TextView
+                android:id="@+id/textView_name"
+                android:layout_width="200dp"
+                android:layout_height="32dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/seekBar_luminosite"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="23dp"
+                android:text="Hey Tom,"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="136dp"
-        android:layout_height="63dp"
-        android:fontFamily="casual"
-        android:lineSpacingExtra="18sp"
-        android:text="4 Tasks"
-        android:textAlignment="center"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar_luminosite" />
+            <TextView
+                android:id="@+id/textView_tasks"
+                android:layout_width="136dp"
+                android:layout_height="63dp"
+                android:layout_alignStart="@+id/textView_grade"
+                android:layout_below="@+id/textView_name"
+                android:layout_marginStart="11dp"
+                android:layout_marginTop="49dp"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="18sp"
+                android:textAlignment="center"
+                android:textColor="@color/White"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="368dp" />
+            <TextView
+                android:id="@+id/textView_up_next"
+                android:layout_width="208dp"
+                android:layout_height="63dp"
+                android:layout_below="@+id/textView_tasks"
+                android:layout_marginTop="57dp"
+                android:layout_toEndOf="@+id/free"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="5sp"
+                android:textAlignment="center"
+                android:textColor="@color/White"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="16dp" />
+            <TextView
+                android:id="@+id/textView_grade"
+                android:layout_width="136dp"
+                android:layout_height="63dp"
+                android:layout_above="@+id/free"
+                android:layout_alignStart="@+id/free"
+                android:layout_marginStart="19dp"
+                android:fontFamily="casual"
+                android:lineSpacingExtra="18sp"
+                android:textAlignment="center"
+                android:textColor="@color/White"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
 
+
+            <TextView
+                android:id="@+id/busy"
+                android:layout_width="44dp"
+                android:layout_height="25dp"
+                android:layout_above="@+id/seekBar_luminosite"
+                android:layout_alignEnd="@+id/seekBar_luminosite"
+                android:text="Busy"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="38dp"
+                tools:layout_editor_absoluteY="557dp" />
+
+            <TextView
+                android:id="@+id/free"
+                android:layout_width="44dp"
+                android:layout_height="25dp"
+                android:layout_above="@+id/seekBar_luminosite"
+                android:layout_alignStart="@+id/textView_name"
+                android:text="Free"
+                android:textSize="18sp" />
+
+            <SeekBar
+                android:id="@+id/seekBar_luminosite"
+                android:layout_width="351dp"
+                android:layout_height="34dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:max="100"
+                android:progress="40"
+                android:progressDrawable="@drawable/seekbar_style"
+                android:thumb="@drawable/custom_thumb" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="368dp" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp" />
+
+
+        </RelativeLayout>
+    </FrameLayout>
 </android.support.constraint.ConstraintLayout>
