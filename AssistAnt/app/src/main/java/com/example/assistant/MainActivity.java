@@ -31,17 +31,6 @@ public class MainActivity extends AppCompatActivity {
         number_of_tasks.setText("5");
         up_next.setText("Algorithms Ex4 \n in 3 days, 2 hours, 20 minutes");
         number_of_grades.setText("4");
-
-        ImageButton tasks_page = findViewById(R.id.button_tasks_page);
-        tasks_page.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), tasks_page_activity.class);
-                //intent.putExtra("fragmetToLoad", "");
-                startActivity(intent);
-            }
-        });
-
     }
 
     @Override
