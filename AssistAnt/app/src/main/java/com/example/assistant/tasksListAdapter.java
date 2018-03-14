@@ -5,8 +5,10 @@ package com.example.assistant;
  */
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageButton;
@@ -15,13 +17,16 @@ import android.widget.TextView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import java.io.FileReader;
+
 public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.ViewHolder> {
 
     private Task[] dataset;
+    private FragmentActivity act;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public tasksListAdapter(Task[] allTasks) {
-
+    public tasksListAdapter(FragmentActivity c, Task[] allTasks) {
+        act = c;
         dataset = allTasks;
     }
 
@@ -38,6 +43,7 @@ public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.View
         ProgressBar difficulty_bar;
         ProgressBar estimated_bar;
         ProgressBar finish_bar;
+        ImageButton report_page;
 
         public ViewHolder(View view) {
 
@@ -50,6 +56,8 @@ public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.View
             finish_bar = (ProgressBar) view.findViewById(R.id.progressBar_finish);
             taskName = (TextView) view.findViewById(R.id.task_name);
             timeRemain = (TextView) view.findViewById(R.id.time_remaining);
+            report_page = (ImageButton) view.findViewById((R.id.report_button));
+
         }
     }
 
@@ -77,7 +85,22 @@ public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.View
         holder.difficulty_bar.setProgress((int)dataset[position].getDifficult());
         holder.estimated_bar.setProgress((int)dataset[position].getEstimatedTime());
         holder.finish_bar.setProgress((int)dataset[position].getAmountOfFinish());
+
+        //final FragmentManager manager = getActivity().getSupportFragmentManager();
+        final FragmentManager manager = act.getSupportFragmentManager();
+        final FragmentTransaction transaction = manager.beginTransaction();
+        final report_pageFragment report_page = new report_pageFragment();
+//        View main_screen = inflater.inflate(R.layout.fragment_main, container, false);
+        holder.report_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                transaction.replace(R.id.fragment_container, report_page);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
+
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override

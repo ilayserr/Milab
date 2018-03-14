@@ -2,6 +2,7 @@ package com.example.assistant;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -77,7 +78,7 @@ public class tasks_page_activityFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter
-        adapter = new tasksListAdapter(dataset);
+        adapter = new tasksListAdapter(this.getActivity() , dataset);
         recyclerView.setAdapter(adapter);
         return mainView;
 
