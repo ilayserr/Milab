@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.assistant.tasks_page_activityFragment"
-    android:background="@drawable/tasks_screen_temp"
+    android:background="@drawable/tasks_screen_template"
     tools:showIn="@layout/activity_tasks_page_activity">
 
     <RelativeLayout
@@ -22,9 +22,9 @@
             android:layout_width="280dp"
             android:layout_height="34dp"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="19dp"
-            android:layout_marginTop="127dp"
+            android:layout_below="@+id/view"
+            android:layout_marginEnd="38dp"
+            android:layout_marginTop="126dp"
             android:max="100"
             android:progress="40"
             android:progressDrawable="@drawable/seekbar_style"
@@ -32,23 +32,28 @@
             tools:layout_editor_absoluteX="65dp"
             tools:layout_editor_absoluteY="534dp" />
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@android:color/holo_red_dark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/seekBar_luminosite"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp">
+
+            <android.support.v7.widget.RecyclerView
+
+                android:id="@+id/show_tasks_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="172dp" />
+        </LinearLayout>
+
     </RelativeLayout>
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@android:color/holo_red_dark" />
 
-    <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_marginTop="30dp">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/show_tasks_list"
-        android:layout_width="match_parent"
-        android:layout_height="283dp"
-        tools:layout_editor_absoluteY="172dp"
-        tools:ignore="MissingConstraints" />
-    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -20,7 +21,7 @@ public class tasks_page_activityFragment extends Fragment {
 
     private Task[] dataset;
     public tasks_page_activityFragment() {
-        dataset = new Task[5];
+        dataset = new Task[9];
         dataset[0] = new Task("Exercise #9",
                 "Automata And Formal Language", 120,
                 "Tuesday, 9 January 2018, 12:00 AM",
@@ -41,6 +42,23 @@ public class tasks_page_activityFragment extends Fragment {
                 "Algorithms", 150,
                 "Sunday, 1 January 2018, 01:00 PM",
                 "Assignment was submitted 4 hours 5 mins early", 90, 5, 10, true);
+        dataset[5] = new Task("Assignment 6",
+                "Algorithms", 150,
+                "Sunday, 7 January 2018, 01:00 PM",
+                "Assignment was submitted 4 hours 5 mins early");
+        dataset[6] = new Task("Assignment 6",
+                "Algorithms", 150,
+                "Sunday, 7 January 2018, 01:00 PM",
+                "Assignment was submitted 4 hours 5 mins early");
+        dataset[7] = new Task("Assignment 6",
+                "Algorithms", 150,
+                "Sunday, 7 January 2018, 01:00 PM",
+                "Assignment was submitted 4 hours 5 mins early");
+        dataset[8] = new Task("Assignment 6",
+                "Algorithms", 150,
+                "Sunday, 7 January 2018, 01:00 PM",
+                "Assignment was submitted 4 hours 5 mins early");
+
         Log.d("test_array", "success1");
         System.out.print(dataset[0].getCourse().getName());
     }
@@ -62,6 +80,9 @@ public class tasks_page_activityFragment extends Fragment {
         adapter = new tasksListAdapter(dataset);
         recyclerView.setAdapter(adapter);
         return mainView;
+
+
+
     }
 
 }

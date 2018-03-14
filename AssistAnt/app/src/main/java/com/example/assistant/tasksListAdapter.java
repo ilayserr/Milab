@@ -4,10 +4,12 @@ package com.example.assistant;
  * Created by ilay on 10/01/2018.
  */
 
-
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.view.LayoutInflater;
