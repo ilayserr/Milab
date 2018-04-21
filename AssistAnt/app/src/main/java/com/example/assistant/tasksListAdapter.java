@@ -22,11 +22,11 @@ import java.io.FileReader;
 public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.ViewHolder> {
 
     private Task[] dataset;
-    private FragmentActivity act;
+    private FragmentActivity current_fragment;
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public tasksListAdapter(FragmentActivity c, Task[] allTasks) {
-        act = c;
+    public tasksListAdapter(FragmentActivity fragment, Task[] allTasks) {
+        current_fragment = fragment;
         dataset = allTasks;
     }
 
@@ -78,22 +78,22 @@ public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+        holder.taskName.setText((String.valueOf((dataset[position].getTaskName()))));
         holder.difficulty.setText(String.valueOf(dataset[position].getDifficult()));
         holder.estimated.setText(String.valueOf(dataset[position].getEstimatedTime()));
         holder.finished.setText(String.valueOf(dataset[position].getAmountOfFinish()));
         holder.timeRemain.setText(String.valueOf(dataset[position].getTimeRemaining()));
         holder.difficulty_bar.setProgress((int)dataset[position].getDifficult());
-        holder.estimated_bar.setProgress((int)dataset[position].getEstimatedTime());
+//        holder.estimated_bar.setProgress((int)dataset[position].getEstimatedTime());
         holder.finish_bar.setProgress((int)dataset[position].getAmountOfFinish());
 
-        //final FragmentManager manager = getActivity().getSupportFragmentManager();
-        final FragmentManager manager = act.getSupportFragmentManager();
-        final FragmentTransaction transaction = manager.beginTransaction();
-        final report_pageFragment report_page = new report_pageFragment();
+        final FragmentManager manager = current_fragment.getSupportFragmentManager();
+        final report_pageFragment report_page = new report_pageFragment(dataset[position]);
 //        View main_screen = inflater.inflate(R.layout.fragment_main, container, false);
         holder.report_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.fragment_container, report_page);
                 transaction.addToBackStack(null);
                 transaction.commit();

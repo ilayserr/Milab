@@ -1,19 +1,20 @@
 package com.example.assistant;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by shaniadir on 1/8/18.
  */
 
-public class Task {
+public class Task implements Serializable {
     String taskName;
     Course course;
     String deadline;
     String timeRemaining;
     int grade;
     double difficult;
-    double estimatedTime;
+    int estimatedTime;
     boolean isSubmitted;
     int amountOfFinish;
 
@@ -29,16 +30,17 @@ public class Task {
         this.amountOfFinish = 0;
     }
 
-    public Task(String taskName, String courseName, int numOfStudents, String deadline, String timeRemaining,
-                int grade, double difficult, double estimatedTime, boolean isSubmitted){
+    public Task(String taskName, Course course, String deadline, String timeRemaining,
+                int grade, double difficult, int estimatedTime, boolean isSubmitted, int amountFinished){
         this.taskName = taskName;
-        this.course = new Course(courseName, numOfStudents);
+        this.course = course;
         this.deadline = deadline;
         this.timeRemaining = timeRemaining;
         this.grade = 0;
         this.difficult = 0;
-        this.estimatedTime = 0;
+        this.estimatedTime = estimatedTime;
         this.isSubmitted = false;
+        this.amountOfFinish = amountFinished;
     }
 
     public Task(String taskName, String courseName, int numOfStudents, String deadline, String timeRemaining) {
@@ -47,6 +49,8 @@ public class Task {
         this.deadline = deadline;
         this.timeRemaining = timeRemaining;
     }
+
+
 
     public String getTaskName() {
         return taskName;
@@ -96,11 +100,11 @@ public class Task {
         this.difficult = difficult;
     }
 
-    public double getEstimatedTime() {
+    public int getEstimatedTime() {
         return estimatedTime;
     }
 
-    public void setEstimatedTime(double estimatedTime) {
+    public void setEstimatedTime(int estimatedTime) {
         this.estimatedTime = estimatedTime;
     }
 

@@ -12,6 +12,15 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,17 +29,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // text fields to dield in main screen
-        final TextView name_of_user = findViewById(R.id.textView_name);
-        final TextView number_of_tasks = findViewById(R.id.textView_tasks);
-        final TextView up_next = findViewById(R.id.textView_up_next);
-        final TextView number_of_grades = findViewById(R.id.textView_grade);
-
-        name_of_user.setText("Hey Tom,");
-        number_of_tasks.setText("5");
-        up_next.setText("Algorithms Ex4 \n in 3 days, 2 hours, 20 minutes");
-        number_of_grades.setText("4");
     }
 
     @Override

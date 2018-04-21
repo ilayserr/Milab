@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.assistant.report_pageFragment"
-    android:background="@drawable/tasks_screen_template"
+    android:background="@drawable/rate_screen_v1"
     tools:showIn="@layout/activity_report_page">
 
 </android.support.constraint.ConstraintLayout>

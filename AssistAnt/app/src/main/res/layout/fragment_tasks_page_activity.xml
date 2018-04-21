@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.assistant.tasks_page_activityFragment"
-    android:background="@drawable/tasks_screen_template"
+    android:background="@drawable/tasks_page"
     tools:showIn="@layout/activity_tasks_page_activity">
 
     <RelativeLayout

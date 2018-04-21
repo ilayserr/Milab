@@ -26,9 +26,9 @@ public class allTasks {
             "Sunday, 7 January 2018, 01:00 PM",
             "Assignment was submitted 4 hours 5 mins early");
     Task FifthTask = new Task("Assignment 5",
-            "Algorithms", 150,
+            new Course ("Algorithms", 150),
             "Sunday, 1 January 2018, 01:00 PM",
-            "Assignment was submitted 4 hours 5 mins early", 90, 5, 10, true);
+            "Assignment was submitted 4 hours 5 mins early", 90, 5, 10, true, 4);
     Task SixthTask = new Task("Assignment 6",
             "Algorithms", 150,
             "Sunday, 7 January 2018, 01:00 PM",
@@ -50,7 +50,7 @@ public class allTasks {
             "Sunday, 7 January 2018, 01:00 PM",
             "Assignment was submitted 4 hours 5 mins early");
 
-    Task[] allTasks = new Task[] {firstTask, secondTask, thirdTask, FourthTask, FifthTask,
+    Task[] allTasks = new Task[] {firstTask, secondTask, thirdTask, FourthTask,
                                   SixthTask, SeventhTask, EightTask, NinethTask, TenthTask};
 
     public Task[] getAllTasks(){
