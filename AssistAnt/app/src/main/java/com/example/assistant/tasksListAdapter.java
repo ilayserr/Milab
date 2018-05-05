@@ -5,6 +5,11 @@ package com.example.assistant;
  */
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -49,7 +54,8 @@ public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.View
 
             super(view);
             difficulty = (TextView) view.findViewById(R.id.difficulty_level);
-            difficulty_bar = (ProgressBar) view.findViewById(R.id.progressBar_difficulty);
+            difficulty_bar = ((ProgressBar) view.findViewById(R.id.progressBar_difficulty));  // .getProgressDrawable().setColorFilter(
+//                    Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
             estimated = (TextView) view.findViewById(R.id.estimate_level);
             estimated_bar = (ProgressBar) view.findViewById(R.id.progressBar_estimate);
             finished = (TextView) view.findViewById(R.id.finish_level);
@@ -57,6 +63,8 @@ public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.View
             taskName = (TextView) view.findViewById(R.id.task_name);
             timeRemain = (TextView) view.findViewById(R.id.time_remaining);
             report_page = (ImageButton) view.findViewById((R.id.report_button));
+
+
 
         }
     }
@@ -74,18 +82,35 @@ public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.View
     }
 
     // Replace the contents of a view (invoked by the layout manager)
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.taskName.setText((String.valueOf((dataset[position].getTaskName()))));
-        holder.difficulty.setText(String.valueOf(dataset[position].getDifficult()));
-        holder.estimated.setText(String.valueOf(dataset[position].getEstimatedTime()));
-        holder.finished.setText(String.valueOf(dataset[position].getAmountOfFinish()));
-        holder.timeRemain.setText(String.valueOf(dataset[position].getTimeRemaining()));
+        holder.difficulty.setText(String.valueOf((int)dataset[position].getDifficult()) + "/7");
+        int estimatedTime = dataset[position].getEstimatedTime();
+        String days = String.valueOf(estimatedTime/24/60);
+        String hours =(estimatedTime/60%24 > 9) ? String.valueOf(estimatedTime/60%24) : "0" + String.valueOf(estimatedTime/60%24);
+        String minutes =(estimatedTime%60 > 9) ? String.valueOf(estimatedTime%60) : "0" + String.valueOf(estimatedTime%60);
+        String estimated_time_string = days + "d " + hours + "h " + minutes + "m";
+        holder.estimated.setText(estimated_time_string);
+        String how_many_finished = String.valueOf(dataset[position].getAmountOfFinish()) + "/" +
+                String.valueOf(dataset[position].getCourse().getNumOfStudents());
+        while (how_many_finished.length() < 6)
+            how_many_finished += "  ";
+        holder.finished.setText(how_many_finished);
+        holder.timeRemain.setText(String.valueOf(dataset[position].getTimeRemaining_str()));
         holder.difficulty_bar.setProgress((int)dataset[position].getDifficult());
-//        holder.estimated_bar.setProgress((int)dataset[position].getEstimatedTime());
+        holder.difficulty_bar.setMax(7);
+        holder.difficulty_bar.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+        holder.estimated_bar.setProgress((int)dataset[position].getEstimatedTime());
+        holder.estimated_bar.setMax(1000);
+        holder.estimated_bar.setProgressTintList(ColorStateList.valueOf(Color.RED));
+        holder.finish_bar.setMax((int)dataset[position].getCourse().getNumOfStudents());
         holder.finish_bar.setProgress((int)dataset[position].getAmountOfFinish());
+        holder.finish_bar.setProgressTintList(ColorStateList.valueOf(Color.BLUE));
+        holder.finish_bar.setMax((int)dataset[position].getCourse().getNumOfStudents());
 
         final FragmentManager manager = current_fragment.getSupportFragmentManager();
         final report_pageFragment report_page = new report_pageFragment(dataset[position]);

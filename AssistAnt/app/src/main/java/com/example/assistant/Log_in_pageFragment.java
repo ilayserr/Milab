@@ -54,58 +54,9 @@ public class Log_in_pageFragment extends Fragment {
                 Log.d("view_main_screen", "start1");
                 String user_name = user.getText().toString();
                 String user_password = password.getText().toString();
-//                Task [] data_tasks = new Task[0];
                 if (validate_details(user_name, user_password)) {
-//                    RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-//                    String url = "https://assistantrestapi.herokuapp.com/get_all_task_to_submit"; //"http://google.com";
-//                    StringRequest req = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-//                        public void onResponse(String response) {
-//                            Log.d("MainActivityFragment", "Response - " + response);
-//                            try {
-//                                //                    JSONObject jsonObject = new JSONObject();
-//                                JSONArray json_array = new JSONArray(response.toString());
-//                                JSONArray json_tasks_array = new JSONArray();
-//                                for (int i = 0; i < json_array.length(); i++) {
-//                                    JSONObject jo = json_array.getJSONObject(i);
-//                                    String course_name = jo.getString("name");
-//                                    int course_numberOfStudents = jo.getInt("numberOfStudents");
-//                                    Course course = new Course(course_name, course_numberOfStudents);
-//                                    json_tasks_array = (JSONArray)jo.get("tasks");
-//                                    int tasks_length = json_tasks_array.length();
-//                                    Task [] data_tasks = new Task [tasks_length];
-//                                    for (int j = 0; j < tasks_length; j++) {
-//                                        JSONObject subObject = json_tasks_array.getJSONObject(j);
-//                                        String title = subObject.getString("title");
-//                                        String deadline = subObject.getString("deadline");
-//                                        String timeRemaining = "placeHolder";
-//                                        int grade = 0;
-//                                        Double difficult = subObject.getDouble("difficulty");
-//                                        int estimatedTime = subObject.getInt("estimatedTime");
-//                                        int amountFinished = subObject.getInt("amountOfFinish");
-//                                        String isSubmited_json = subObject.getString("isSubmitted");
-//                                        boolean isSubmited;
-//                                        if (isSubmited_json.equals("No"))
-//                                            isSubmited = false;
-//                                        else
-//                                            isSubmited = true;
-//                                        data_tasks[j] = new Task(title, course, deadline, timeRemaining,
-//                                                grade, difficult, estimatedTime, isSubmited, amountFinished);
-//                                    }
-//                                    System.out.println();
-//                                }
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                            }
-//                        }
-//                    }, new Response.ErrorListener() {
-//                        @Override
-//                        public void onErrorResponse(VolleyError error) {
-//                            Log.e("MainActivityFragment", "Encountered error - " + error);
-//                        }
-//                    });
-//                    queue.add(req);
                     Intent intent = new Intent(view.getContext(), MainActivity.class);
-//                    intent.putExtra("data_tasks", data_tasks);
+                    intent.putExtra("user_name", user_name);
                     startActivity(intent);
                 } else {
                     Toast toast = Toast.makeText(view.getContext(), "Wrong user name or password, try again", Toast.LENGTH_SHORT);

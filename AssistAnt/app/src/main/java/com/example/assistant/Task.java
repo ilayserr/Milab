@@ -11,18 +11,20 @@ public class Task implements Serializable {
     String taskName;
     Course course;
     String deadline;
-    String timeRemaining;
+    String timeRemaining_str;
+    int timeRemaining_min;
     int grade;
     double difficult;
     int estimatedTime;
     boolean isSubmitted;
     int amountOfFinish;
+    double sortAlgorithm;
 
-    public Task(String taskName, Course course, String deadline, String timeRemaining){
+    public Task(String taskName, Course course, String deadline, String timeRemaining_str){
         this.taskName = taskName;
         this.course = course;
         this.deadline = deadline;
-        this.timeRemaining = timeRemaining;
+        this.timeRemaining_str = timeRemaining_str;
         this.grade = 0;
         this.difficult = 0;
         this.estimatedTime = 0;
@@ -30,24 +32,26 @@ public class Task implements Serializable {
         this.amountOfFinish = 0;
     }
 
-    public Task(String taskName, Course course, String deadline, String timeRemaining,
-                int grade, double difficult, int estimatedTime, boolean isSubmitted, int amountFinished){
+    public Task(String taskName, Course course, String deadline, String timeRemaining_str, int timeRemaining_min,
+                double difficult, int estimatedTime, boolean isSubmitted, int amountFinished,
+                double sortAlgorithm){
         this.taskName = taskName;
         this.course = course;
         this.deadline = deadline;
-        this.timeRemaining = timeRemaining;
-        this.grade = 0;
-        this.difficult = 0;
+        this.timeRemaining_str = timeRemaining_str;
+        this.timeRemaining_min = timeRemaining_min;
+        this.difficult = difficult;
         this.estimatedTime = estimatedTime;
         this.isSubmitted = false;
         this.amountOfFinish = amountFinished;
+        this.sortAlgorithm = sortAlgorithm;
     }
 
-    public Task(String taskName, String courseName, int numOfStudents, String deadline, String timeRemaining) {
+    public Task(String taskName, String courseName, int numOfStudents, String deadline, String timeRemaining_str) {
         this.taskName = taskName;
         this.course = new Course(courseName, numOfStudents);
         this.deadline = deadline;
-        this.timeRemaining = timeRemaining;
+        this.timeRemaining_str = timeRemaining_str;
     }
 
 
@@ -76,12 +80,20 @@ public class Task implements Serializable {
         this.deadline = deadline;
     }
 
-    public String getTimeRemaining() {
-        return timeRemaining;
+    public String getTimeRemaining_str() {
+        return timeRemaining_str;
     }
 
-    public void setTimeRemaining(String timeRemaining) {
-        this.timeRemaining = timeRemaining;
+    public void setTimeRemaining(String timeRemaining_str) {
+        this.timeRemaining_str = timeRemaining_str;
+    }
+
+    public int getTimeRemaining_min() {
+        return timeRemaining_min;
+    }
+
+    public void setTimeRemaining(int timeRemaining_min) {
+        this.timeRemaining_min = timeRemaining_min;
     }
 
     public int getGrade() {
@@ -122,6 +134,14 @@ public class Task implements Serializable {
 
     public void setAmountOfFinish(int amountOfFinish) {
         this.amountOfFinish = amountOfFinish;
+    }
+
+    public double getSortAlgorithm() {
+        return sortAlgorithm;
+    }
+
+    public void setSortAlgorithm(double sortAlgorithm) {
+        this.sortAlgorithm = sortAlgorithm;
     }
 
 

@@ -8,4 +8,69 @@
     android:background="@drawable/rate_screen_v1"
     tools:showIn="@layout/activity_report_page">
 
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="274dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:indeterminate="false"
+        android:max="96"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="203dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/report_minutes"
+        android:layout_width="50dp"
+        android:layout_height="43dp"
+        android:layout_alignBottom="@+id/report_days"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="108dp"
+        android:gravity="center"
+        android:hint="0"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textSize="13dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="347dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/report_hours"
+        android:layout_width="50dp"
+        android:layout_height="43dp"
+
+        android:layout_marginEnd="308dp"
+        android:hint="0"
+        android:gravity="center"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="347dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/report_days"
+        android:layout_width="50dp"
+        android:layout_height="43dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="212dp"
+        android:gravity="center"
+        android:hint="0"
+        android:inputType="text"
+        android:maxLines="1"
+
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="479dp"
+        tools:ignore="MissingConstraints" />
+
+
+
+
 </android.support.constraint.ConstraintLayout>

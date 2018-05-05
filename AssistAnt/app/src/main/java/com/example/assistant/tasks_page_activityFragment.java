@@ -1,6 +1,11 @@
 package com.example.assistant;
 
 import android.content.SyncStatusObserver;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -34,58 +41,6 @@ public class tasks_page_activityFragment extends Fragment {
 
     private Task[] dataset;
     public tasks_page_activityFragment() {
-//        dataset = new Task[9];
-//        dataset[0] = new Task("Exercise #9",
-//                "Automata And Formal Language", 120,
-//                "Tuesday, 9 January 2018, 12:00 AM",
-//                "4 hours 52 mins");
-//        dataset[1] = new Task("Exercise 4",
-//                "Computer Networks", 130,
-//                "Friday, 12 January 2018, 02:00 PM",
-//                "3 days and 4 hours");
-//        dataset[2] = new Task("Assignment 7",
-//                "Algorithms", 150,
-//                "Sunday, 14 January 2018, 01:00 PM",
-//                "5 days and 3 hours");
-//        dataset[3] = new Task("Assignment 6",
-//                "Algorithms", 150,
-//                "Sunday, 7 January 2018, 01:00 PM",
-//                "Assignment was submitted 4 hours 5 mins early");
-//        dataset[4] = new Task("Assignment 5",
-//                "Algorithms", 150,
-//                "Sunday, 1 January 2018, 01:00 PM",
-//                "Assignment was submitted 4 hours 5 mins early", 90, 5, 10, true);
-//        dataset[5] = new Task("Assignment 6",
-//                "Algorithms", 150,
-//                "Sunday, 7 January 2018, 01:00 PM",
-//                "Assignment was submitted 4 hours 5 mins early");
-//        dataset[6] = new Task("Assignment 6",
-//                "Algorithms", 150,
-//                "Sunday, 7 January 2018, 01:00 PM",
-//                "Assignment was submitted 4 hours 5 mins early");
-//        dataset[7] = new Task("Assignment 6",
-//                "Algorithms", 150,
-//                "Sunday, 7 January 2018, 01:00 PM",
-//                "Assignment was submitted 4 hours 5 mins early");
-//        dataset[8] = new Task("Assignment 6",
-//                "Algorithms", 150,
-//                "Sunday, 7 January 2018, 01:00 PM",
-//                "Assignment was submitted 4 hours 5 mins early");
-
-        /*
-        all_taks_output_example
-        [
-        {"_id":"5ab6764c734d1d57bac4a77a","name":"Algorithms","lecturer":"Prof Tami Tamir","numberOfStudents":"120",
-        "tasks":
-                [
-                    {"title":"Assignment05","createdBy":"Shani Adir","deadline":"01-05-2018","difficulty":"6","estimatedTime":"9 hours","isSubmitted":"No","amountOfFinish":"5"},
-                    {"title":"Assignment04","createdBy":"Ilay Serr","deadline":"20-04-2018","difficulty":"5","estimatedTime":"6 hours","isSubmitted":"No","amountOfFinish":"10"}
-                ]
-         }
-        ]
-        */
-
-
 
         dataset = new Task[1];
         dataset[0] = new Task("Exercise #9",
@@ -97,10 +52,27 @@ public class tasks_page_activityFragment extends Fragment {
         System.out.print(dataset[0].getCourse().getName());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Handler seekBarHandler = new Handler(); // must be created in the same thread that created the SeekBar
+
         View mainView =  inflater.inflate(R.layout.fragment_tasks_page_activity, container, false);
+        Bundle bundle = getArguments();
+        Task[] data_tasks = (Task[]) bundle.getSerializable("data_tasks");
+        int stress_level = bundle.getInt("stress_level");
+        int position = bundle.getInt("position");
+        SeekBar seekBar = mainView.findViewById(R.id.seekBar_luminosite);
+        // you should define max in xml, but if you need to do this by code, you must set max as 0 and then your desired value. this is because a bug in SeekBar (issue 12945) (don't really checked if it was corrected)
+        int max = 10000;
+        seekBar.setMax(max);
+        seekBar.setProgress(stress_level);
+        seekBar.setEnabled(false);
+
+        if ((stress_level / (double)max) > 0.75)
+            seekBar.setProgressTintList(ColorStateList.valueOf(Color.RED));
+
         recyclerView = (RecyclerView)mainView.findViewById(R.id.show_tasks_list);
 
         // improve performance
@@ -110,21 +82,13 @@ public class tasks_page_activityFragment extends Fragment {
         layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-
-        /*
-
-        [{"_id":"5ab6764c734d1d57bac4a77a","name":"Algorithms","lecturer":"Prof Tami Tamir","numberOfStudents":"120","tasks":[{"title":"Assignment05","createdBy":"Shani Adir","deadline":"01-05-2018","difficulty":"6","estimatedTime":"9 hours","isSubmitted":"No","amountOfFinish":"5"},{"title":"Assignment04","createdBy":"Ilay Serr","deadline":"20-04-2018","difficulty":"5","estimatedTime":"6 hours","isSubmitted":"No","amountOfFinish":"10"}]}]
-         */
-
-        Bundle bundle = getArguments();
-        Task[] data_tasks= (Task[]) bundle.getSerializable("data_tasks");
-
         // specify an adapter
         adapter = new tasksListAdapter(this.getActivity() , data_tasks);
         recyclerView.setAdapter(adapter);
+
+        // move to a specific position
+        recyclerView.scrollToPosition(position);
         return mainView;
-
-
 
     }
 
