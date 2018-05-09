@@ -11,19 +11,27 @@
         android:layout_height="1dp"
         android:textAlignment="center"
         android:background="@android:color/darker_gray"/>
+    <TextView
+        android:id="@+id/line_drop1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="\n" />
 
     <LinearLayout
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:gravity="center"
-    android:paddingTop="20dp">
+    android:gravity="center">
+
 
         <TextView
             android:id="@+id/task_name"
             android:layout_width="117dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
             android:textSize="13sp"
             android:textStyle="bold" />
 
@@ -31,15 +39,14 @@
             android:id="@+id/time_remaining"
             android:layout_width="99dp"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:layout_marginLeft="50dp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/report_button"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_marginLeft="50sp"
+            android:paddingTop="10dp"
             app:srcCompat="@drawable/submit_button" />
 
     </LinearLayout>
@@ -56,6 +63,7 @@
             android:layout_width="117dp"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
+            android:textSize="14sp"
             android:text="Difficulty level"
             android:textAlignment="viewStart"
             android:textStyle="bold" />
@@ -63,8 +71,8 @@
         <ProgressBar
             android:id="@+id/progressBar_difficulty"
             style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="200dp"
-            android:layout_height="18dp"
+            android:layout_width="130dp"
+            android:layout_height="15dp"
             android:max="7"
             android:progress="70"
             android:textAlignment="center" />
@@ -76,10 +84,10 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="7"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="30dp"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -96,14 +104,16 @@
             android:layout_height="wrap_content"
             android:baselineAligned="false"
             android:text="Estimate time"
+            android:textSize="14sp"
+            android:layout_marginLeft="12dp"
             android:textAlignment="viewStart"
             android:textStyle="bold" />
 
         <ProgressBar
             android:id="@+id/progressBar_estimate"
             style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="200dp"
-            android:layout_height="18dp"
+            android:layout_width="130dp"
+            android:layout_height="15dp"
             android:max="1000"
             android:progress="25"
             android:textAlignment="center" />
@@ -116,8 +126,9 @@
             android:gravity="center"
             android:text="2.7"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -135,13 +146,14 @@
             android:baselineAligned="false"
             android:text="Already finish"
             android:textAlignment="viewStart"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <ProgressBar
             android:id="@+id/progressBar_finish"
             style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="200dp"
-            android:layout_height="18dp"
+            android:layout_width="130dp"
+            android:layout_height="15dp"
             android:max="80"
             android:progress="7"
             android:textAlignment="center" />
@@ -153,22 +165,23 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="17/120"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="15dp"
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
+
     <TextView
+        android:id="@+id/line_drop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="\n\"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:text="\n"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="15dp" />
+
     <View
     android:layout_width="match_parent"
     android:layout_height="1dp"

@@ -163,9 +163,9 @@ public class MainActivityFragment extends Fragment {
         queue.add(req);
 
 //        ImageButton tasks_page = main_screen.findViewById(R.id.button_tasks_page);
-        Button tasksButton = (Button)main_screen.findViewById(R.id.button_tasks_page);
+        Button tasksButton = main_screen.findViewById(R.id.button_tasks_page);
         tasksButton.setVisibility(View.VISIBLE);
-        tasksButton.setBackgroundColor(Color.TRANSPARENT);
+        tasksButton.setBackgroundColor(Color.TRANSPARENT); //Color.argb(150, 155, 155, 155));
 
         Log.d("click_to_view_tasks", "start");
 
@@ -190,7 +190,7 @@ public class MainActivityFragment extends Fragment {
         });
 
 
-        Button up_nextButton = (Button)main_screen.findViewById(R.id.button_up_next_page);
+        Button up_nextButton = main_screen.findViewById(R.id.button_up_next_page);
         up_nextButton.setVisibility(View.VISIBLE);
         up_nextButton.setBackgroundColor(Color.TRANSPARENT);
 
@@ -210,6 +210,17 @@ public class MainActivityFragment extends Fragment {
                 ft.addToBackStack(null);
                 ft.commit();
 
+            }
+        });
+
+        Button recent_tasks_button = main_screen.findViewById(R.id.button_recent_tasks_page);
+        recent_tasks_button.setVisibility(View.VISIBLE);
+        recent_tasks_button.setBackgroundColor(Color.TRANSPARENT);
+
+        recent_tasks_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("nothing yet","nothing yet");
             }
         });
 
