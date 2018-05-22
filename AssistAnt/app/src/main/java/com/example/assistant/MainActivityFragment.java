@@ -220,7 +220,17 @@ public class MainActivityFragment extends Fragment {
         recent_tasks_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("nothing yet","nothing yet");
+                FragmentTransaction ft =  getActivity().getSupportFragmentManager().beginTransaction();
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("data_tasks", data_tasks);
+                bundle.putInt("stress_level", stress_level);
+                bundle.putInt("position", 0);
+                tasksListPage.setArguments(bundle);
+                ft.replace(R.id.fragment_container, tasksListPage);
+                ft.addToBackStack(null);
+                ft.commit();
             }
         });
 

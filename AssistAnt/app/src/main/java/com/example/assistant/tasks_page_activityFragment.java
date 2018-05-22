@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 
 import com.android.volley.Request;
@@ -63,15 +64,18 @@ public class tasks_page_activityFragment extends Fragment {
         Task[] data_tasks = (Task[]) bundle.getSerializable("data_tasks");
         int stress_level = bundle.getInt("stress_level");
         int position = bundle.getInt("position");
-        SeekBar seekBar = mainView.findViewById(R.id.seekBar_luminosite);
+//        SeekBar seekBar = mainView.findViewById(R.id.seekBar_luminosite);
+        ProgressBar seekBar= mainView.findViewById((R.id.seekBar_luminosite));
         // you should define max in xml, but if you need to do this by code, you must set max as 0 and then your desired value. this is because a bug in SeekBar (issue 12945) (don't really checked if it was corrected)
         int max = 10000;
         seekBar.setMax(max);
         seekBar.setProgress(stress_level);
         seekBar.setEnabled(false);
-
+        seekBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#228B22")));
+        if ((stress_level / (double)max) > 0.55)
+            seekBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#2ECC40")));
         if ((stress_level / (double)max) > 0.75)
-            seekBar.setProgressTintList(ColorStateList.valueOf(Color.RED));
+            seekBar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#FF4136")));
 
         recyclerView = (RecyclerView)mainView.findViewById(R.id.show_tasks_list);
 

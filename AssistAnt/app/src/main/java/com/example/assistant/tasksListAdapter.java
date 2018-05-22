@@ -103,13 +103,13 @@ public class tasksListAdapter extends RecyclerView.Adapter<tasksListAdapter.View
         holder.timeRemain.setText(String.valueOf(dataset[position].getTimeRemaining_str()));
         holder.difficulty_bar.setProgress((int)dataset[position].getDifficult());
         holder.difficulty_bar.setMax(7);
-        holder.difficulty_bar.setProgressTintList(ColorStateList.valueOf(Color.YELLOW));
+        holder.difficulty_bar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#FF7575")));
         holder.estimated_bar.setProgress((int)dataset[position].getEstimatedTime());
         holder.estimated_bar.setMax(1000);
-        holder.estimated_bar.setProgressTintList(ColorStateList.valueOf(Color.RED));
+        holder.estimated_bar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#FDC36C")));
         holder.finish_bar.setMax((int)dataset[position].getCourse().getNumOfStudents());
         holder.finish_bar.setProgress((int)dataset[position].getAmountOfFinish());
-        holder.finish_bar.setProgressTintList(ColorStateList.valueOf(Color.BLUE));
+        holder.finish_bar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#00DDFF")));
         holder.finish_bar.setMax((int)dataset[position].getCourse().getNumOfStudents());
 
         final FragmentManager manager = current_fragment.getSupportFragmentManager();
