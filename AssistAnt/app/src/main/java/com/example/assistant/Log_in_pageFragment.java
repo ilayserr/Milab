@@ -82,7 +82,7 @@ public class Log_in_pageFragment extends Fragment {
         Map<String, String> dict= new HashMap<String, String>();
         dict.put("a", "1");
         dict.put("ilay", "12345678");
-        dict.put("שashani", "12345678");
+        dict.put("shani", "12345678");
         return dict;
     }
 }

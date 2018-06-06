@@ -59,9 +59,9 @@
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:paddingTop="10dp"
-            android:scaleType="center"
+            android:scaleType="fitCenter"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/submit_button" />
+            app:srcCompat="@drawable/rate_button_new_copy" />
 
     </LinearLayout>
 

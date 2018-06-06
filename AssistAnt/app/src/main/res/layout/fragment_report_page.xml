@@ -16,37 +16,48 @@
         tools:layout_editor_absoluteY="0dp">
 
 
-        <EditText
-            android:id="@+id/report_minutes"
-            android:layout_width="40dp"
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="130dp"
             android:layout_height="43dp"
-            android:layout_alignBaseline="@+id/report_hours"
-            android:layout_alignBottom="@+id/report_hours"
-            android:layout_marginStart="12dp"
-            android:layout_toEndOf="@+id/button_rate_report"
+            android:layout_above="@+id/button_rate_report"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="78dp"
+            android:background="@android:drawable/btn_dropdown"
             android:gravity="center"
-            android:hint="0"
-            android:inputType="text"
-            android:maxLines="1"
-            android:textSize="13dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="347dp" />
+            android:spinnerMode="dropdown" />
 
-        <EditText
-            android:id="@+id/report_hours"
-            android:layout_width="40dp"
-            android:layout_height="43dp"
-            android:layout_alignStart="@+id/seekBar"
-            android:layout_below="@+id/seekBar"
-            android:layout_marginStart="41dp"
-            android:layout_marginTop="114dp"
-            android:gravity="center"
-            android:hint="0"
-            android:inputType="text"
-            android:maxLines="1"
-            android:textSize="13dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="347dp" />
+        <!--<EditText-->
+        <!--android:id="@+id/report_minutes"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="43dp"-->
+        <!--android:layout_alignBaseline="@+id/report_hours"-->
+        <!--android:layout_alignBottom="@+id/report_hours"-->
+        <!--android:layout_marginStart="12dp"-->
+        <!--android:layout_toEndOf="@+id/button_rate_report"-->
+        <!--android:gravity="center"-->
+        <!--android:hint="0"-->
+        <!--android:inputType="text"-->
+        <!--android:maxLines="1"-->
+        <!--android:textSize="13dp"-->
+        <!--tools:ignore="MissingConstraints"-->
+        <!--tools:layout_editor_absoluteY="347dp" />-->
+
+        <!--<EditText-->
+        <!--android:id="@+id/report_hours"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="43dp"-->
+        <!--android:layout_alignStart="@+id/seekBar"-->
+        <!--android:layout_below="@+id/seekBar"-->
+        <!--android:layout_marginStart="41dp"-->
+        <!--android:layout_marginTop="114dp"-->
+        <!--android:gravity="center"-->
+        <!--android:hint="0"-->
+        <!--android:inputType="text"-->
+        <!--android:maxLines="1"-->
+        <!--android:textSize="13dp"-->
+        <!--tools:ignore="MissingConstraints"-->
+        <!--tools:layout_editor_absoluteY="347dp" />-->
 
         <SeekBar
             android:id="@+id/seekBar"
@@ -68,10 +79,9 @@
             android:id="@+id/button_rate_report"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/report_minutes"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="80dp"
-            android:layout_toEndOf="@+id/report_hours"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="159dp"
             android:text="Rate" />
 
     </RelativeLayout>

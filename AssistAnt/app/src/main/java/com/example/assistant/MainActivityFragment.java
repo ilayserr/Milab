@@ -216,23 +216,23 @@ public class MainActivityFragment extends Fragment {
         Button recent_tasks_button = main_screen.findViewById(R.id.button_recent_tasks_page);
         recent_tasks_button.setVisibility(View.VISIBLE);
         recent_tasks_button.setBackgroundColor(Color.TRANSPARENT);
-
-        recent_tasks_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction ft =  getActivity().getSupportFragmentManager().beginTransaction();
-                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("data_tasks", data_tasks);
-                bundle.putInt("stress_level", stress_level);
-                bundle.putInt("position", 0);
-                tasksListPage.setArguments(bundle);
-                ft.replace(R.id.fragment_container, tasksListPage);
-                ft.addToBackStack(null);
-                ft.commit();
-            }
-        });
+//
+//        recent_tasks_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                FragmentTransaction ft =  getActivity().getSupportFragmentManager().beginTransaction();
+////                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+////
+////                Bundle bundle = new Bundle();
+////                bundle.putSerializable("data_tasks", data_tasks);
+////                bundle.putInt("stress_level", stress_level);
+////                bundle.putInt("position", 0);
+////                tasksListPage.setArguments(bundle);
+////                ft.replace(R.id.fragment_container, tasksListPage);
+////                ft.addToBackStack(null);
+////                ft.commit();
+//            }
+//        });
 
         return main_screen;
     }
